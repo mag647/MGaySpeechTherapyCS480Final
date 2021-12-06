@@ -37,7 +37,7 @@ namespace MGaySpeechTherapyCS480Final
             bu.UserInstance = false;//notneeded
             bu.UserID = "Ext_Prg";//notneeded
             bu.Password = "passwerd";*/ //not needed
-
+            //Test
             /*code next few lines needed
             sConn.ConnectionString = @"Data Source=LAPTOP-DJFHSMT5\SQLEXPRESS;Initial Catalog=MGaySLPDatabase;Integrated Security=True";// bu.ConnectionString;
             sConn.Open(); still needed*/

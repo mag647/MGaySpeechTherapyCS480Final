@@ -16,13 +16,7 @@ namespace MGaySpeechTherapyCS480Final
 {
     public partial class SpeechTherapyApp : Form
     {
-        /*SqlConnection sConn = new SqlConnection();
-        SqlDataAdapter mdaTick;
-        DataTable TickData = new DataTable();
-        //SqlConnectionStringBuilder bu = new SqlConnectionStringBuilder(); //notneeded
-        DataTable PersonData = new DataTable();
-        DataSet PersonSet = new DataSet();
-        SqlDataAdapter mdaPerson;*/
+        
         public SpeechTherapyApp()
         {
             InitializeComponent();
@@ -30,34 +24,7 @@ namespace MGaySpeechTherapyCS480Final
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            /***SQL connection settings***/
-            /*bu.DataSource = @"LAPTOP-DJFHSMT5\SQLEXPRESS"; //notneeded
-            bu.InitialCatalog = "MGaySLPDatabase.mdf"; //not needed
-            bu.IntegratedSecurity = false;//notneeded
-            bu.UserInstance = false;//notneeded
-            bu.UserID = "Ext_Prg";//notneeded
-            bu.Password = "passwerd";*/ //not needed
-            //Test
-            /*code next few lines needed
-            sConn.ConnectionString = @"Data Source=LAPTOP-DJFHSMT5\SQLEXPRESS;Initial Catalog=MGaySLPDatabase;Integrated Security=True";// bu.ConnectionString;
-            sConn.Open(); still needed*/
-            /***Fill View Client gridview***/
-            /*code needed
-            mdaTick = new SqlDataAdapter("SELECT ClientFirstName, ClientLastName FROM ClientInfo", sConn);
-            SqlCommandBuilder m_cbCommandBuilder = new SqlCommandBuilder(mdaTick);
-            mdaTick.Fill(TickData);
-            dataGridView1.DataSource = TickData;
-            dataGridView1.Columns[0].Name = "First Name";
-            dataGridView1.Columns[1].Name = "Last Name"; */
-
-            /* makes button column
-            DataGridViewButtonColumn col = new DataGridViewButtonColumn();
-            col.UseColumnTextForButtonValue = true;
-            col.Text = "Oops!";
-            col.Name = "Redo";
-            dataGridView1.Columns.Add(col);
-            */
-            //needed: sConn.Close();
+           
             //attempt to fill combobox
             //https://stackoverflow.com/questions/12900062/c-sharp-fill-combo-box-from-sql-datatable
 
@@ -76,6 +43,8 @@ namespace MGaySpeechTherapyCS480Final
                 comboBox4.Items.Clear();
                 comboBox5.Items.Clear();
                 comboBox6.Items.Clear();
+                comboBox7.Items.Clear();
+                comboBox8.Items.Clear();
                 SqlConnection sConn = new SqlConnection();
                 sConn.ConnectionString = @"Data Source=LAPTOP-DJFHSMT5\SQLEXPRESS;Initial Catalog=MGaySLPDatabase;Integrated Security=True";// bu.ConnectionString;
 
@@ -91,6 +60,8 @@ namespace MGaySpeechTherapyCS480Final
                     comboBox4.Items.Add(wholeName);
                     comboBox5.Items.Add(wholeName);
                     comboBox6.Items.Add(wholeName);
+                    comboBox7.Items.Add(wholeName);
+                    comboBox8.Items.Add(wholeName);
                 }
                 sqlReader.Close();
                 sConn.Close();
@@ -156,29 +127,9 @@ namespace MGaySpeechTherapyCS480Final
                 MessageBox.Show("Error with filling provider box! Please try again.", ex.Message);
             }
         }
-
-        private void sample_query_with_parameters()
-        {
-            
-            //sample query
-            /*PersonData.Clear();
-            PersonSet.Clear();
-            mdaPerson = new SqlDataAdapter("SELECT Reviewed_By, Tested_By, Assigned_To, count, Status FROM Test_Status WHERE [Test_Request] = @TR AND [Test_Name] = @Test", sConn);
-            //mdaPerson.SelectCommand.Parameters.AddWithValue("@TR", dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-            //mdaPerson.SelectCommand.Parameters.AddWithValue("@Test", dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
-            SqlCommandBuilder m_cbCommandBuilder1 = new SqlCommandBuilder(mdaPerson);
-            mdaPerson.Fill(PersonData);
-            mdaPerson.Fill(PersonSet, "Test_Status");
-            //string assignee = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            string reviewer = PersonData.Rows[0][0].ToString();
-            string tester = PersonData.Rows[0][1].ToString();
-            PersonSet.Tables["Test_Status"].Rows[0]["Assigned_To"] = reviewer;
-            mdaPerson.Update(PersonSet, "Test_Status");*/
-        }
-
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            //remove this!
         }
 
         private void ViewNamesButton_Click(object sender, EventArgs e)
@@ -188,12 +139,7 @@ namespace MGaySpeechTherapyCS480Final
                 SqlConnection sConnClientName = new SqlConnection();
                 SqlDataAdapter daClientName;
                 DataTable ClientNameDataTable = new DataTable();
-                //SqlConnectionStringBuilder bu = new SqlConnectionStringBuilder(); //notneeded
-
-                //DataTable PersonData = new DataTable();
-                //DataSet PersonSet = new DataSet();
-                //SqlDataAdapter mdaPerson;
-
+                
                 sConnClientName.ConnectionString = @"Data Source=LAPTOP-DJFHSMT5\SQLEXPRESS;Initial Catalog=MGaySLPDatabase;Integrated Security=True";// bu.ConnectionString;
                 sConnClientName.Open();
                 /***Fill View Client Names gridview***/
@@ -259,9 +205,8 @@ namespace MGaySpeechTherapyCS480Final
                 {
                     SqlConnection sConnClientData = new SqlConnection();
                     SqlDataAdapter daClientData;
-                    //DataTable ClientDataTable = new DataTable();
 
-                    sConnClientData.ConnectionString = @"Data Source=LAPTOP-DJFHSMT5\SQLEXPRESS;Initial Catalog=MGaySLPDatabase;Integrated Security=True";// bu.ConnectionString;
+                    sConnClientData.ConnectionString = @"Data Source=LAPTOP-DJFHSMT5\SQLEXPRESS;Initial Catalog=MGaySLPDatabase;Integrated Security=True";
                     sConnClientData.Open();
                     /***Fill View Client Data gridview***/
                     daClientData = new SqlDataAdapter("SELECT ClientName, ClientAddress, ClientPhone, ClientBirthDate, ClientDiagnosis FROM ClientInfo ORDER by ClientID", sConnClientData);
@@ -296,8 +241,6 @@ namespace MGaySpeechTherapyCS480Final
                     MessageBox.Show("Error! Please try again.", ex.Message);
                 }
             }
-
-            //MessageBox.Show(dateTimePicker1.Text);
         }
 
         private void clearClientButton_Click(object sender, EventArgs e)
@@ -362,7 +305,6 @@ namespace MGaySpeechTherapyCS480Final
                 {
                     SqlConnection sConnClientData = new SqlConnection();
                     SqlDataAdapter daClientData;
-                    //DataTable ClientDataTable = new DataTable();
 
                     sConnClientData.ConnectionString = @"Data Source=LAPTOP-DJFHSMT5\SQLEXPRESS;Initial Catalog=MGaySLPDatabase;Integrated Security=True";// bu.ConnectionString;
                     sConnClientData.Open();
@@ -414,7 +356,7 @@ namespace MGaySpeechTherapyCS480Final
                 sConnEvalData.ConnectionString = @"Data Source=LAPTOP-DJFHSMT5\SQLEXPRESS;Initial Catalog=MGaySLPDatabase;Integrated Security=True";// bu.ConnectionString;
                 sConnEvalData.Open();
 
-                daEvalData = new SqlDataAdapter("SELECT ClientName, TestName, StandardScore, PercentileRank, AdditionalData FROM EvalData WHERE ClientName = @Name", sConnEvalData);
+                daEvalData = new SqlDataAdapter("SELECT ClientName, TestName, StandardScore, PercentileRank, AdditionalData, EvalDate FROM EvalData WHERE ClientName = @Name", sConnEvalData);
                 daEvalData.SelectCommand.Parameters.Add("@Name", SqlDbType.NVarChar);
                 daEvalData.SelectCommand.Parameters["@Name"].Value = comboBox5.Text;
                 SqlCommandBuilder m_cbCommandBuilder = new SqlCommandBuilder(daEvalData);
@@ -425,6 +367,7 @@ namespace MGaySpeechTherapyCS480Final
                 dataGridViewEval.Columns[2].HeaderCell.Value = "Standard Score";
                 dataGridViewEval.Columns[3].HeaderCell.Value = "Percentile Rank";
                 dataGridViewEval.Columns[4].HeaderCell.Value = "Additional Data";
+                dataGridViewEval.Columns[5].HeaderCell.Value = "Eval Date";
                 dataGridViewEval.AutoResizeColumns();
                 sConnEvalData.Close();
             }
@@ -460,9 +403,8 @@ namespace MGaySpeechTherapyCS480Final
            {
                MessageBox.Show("One or more fields have an incorrect length. Please correct data!");
            }*/
-
-            
-            if (comboBox2.Text == "" || textBox3.Text == "" || maskedTextBox2.Text == "" || maskedTextBox3.Text == "" || textBox4.Text == "")
+        
+            if (comboBox2.Text == "" || textBox3.Text == "" ||  textBox4.Text == "")
             {
                 MessageBox.Show("One or more fields are blank. Please fill in missing data!");
             }
@@ -472,12 +414,11 @@ namespace MGaySpeechTherapyCS480Final
                 {
                     SqlConnection sConnClientData = new SqlConnection();
                     SqlDataAdapter daClientData;
-                    //DataTable ClientDataTable = new DataTable();
-
+                    
                     sConnClientData.ConnectionString = @"Data Source=LAPTOP-DJFHSMT5\SQLEXPRESS;Initial Catalog=MGaySLPDatabase;Integrated Security=True";// bu.ConnectionString;
                     sConnClientData.Open();
                     /***Fill View Client Data gridview***/
-                    daClientData = new SqlDataAdapter("SELECT ClientName, TestName, StandardScore, PercentileRank, AdditionalData FROM EvalData ORDER by EvalID", sConnClientData);
+                    daClientData = new SqlDataAdapter("SELECT ClientName, TestName, StandardScore, PercentileRank, AdditionalData, EvalDate FROM EvalData ORDER by EvalID", sConnClientData);
                     SqlCommandBuilder m_cbCommandBuilder = new SqlCommandBuilder(daClientData);
 
                     DataSet ds = new DataSet("EvalSet");
@@ -486,9 +427,10 @@ namespace MGaySpeechTherapyCS480Final
                     DataRow row = ClientDataTable.NewRow();
                     row["ClientName"] = comboBox2.Text;
                     row["TestName"] = textBox3.Text;
-                    row["StandardScore"] = maskedTextBox2.Text;
-                    row["PercentileRank"] = maskedTextBox3.Text;
+                    row["StandardScore"] = numericUpDown1.Text;
+                    row["PercentileRank"] = numericUpDown2.Text;
                     row["AdditionalData"] = textBox4.Text;
+                    row["EvalDate"] = dateTimePicker3.Text;
                     ClientDataTable.Rows.Add(row);
 
                     daClientData.Update(ds, "EvalData");
@@ -497,8 +439,8 @@ namespace MGaySpeechTherapyCS480Final
                     sConnClientData.Close();
                     comboBox2.Text = "";
                     textBox3.Text = "";
-                    maskedTextBox2.Text = "";
-                    maskedTextBox3.Text = "";
+                    numericUpDown2.Value = 0;
+                    numericUpDown1.Value = 0;
                     textBox4.Text = "";
                     dateTimePicker3.Value = DateTime.Today;
                 }
@@ -641,6 +583,48 @@ namespace MGaySpeechTherapyCS480Final
                 }
             }
         }
-       
+
+        private void viewGoalButton_Click(object sender, EventArgs e)
+        {
+
+            if (comboBox7.Text == "")
+            {
+                MessageBox.Show("Please chose a name to view client goal(s)!");
+            }
+            else
+            {
+                try
+                {
+                    SqlConnection sConnGoalData = new SqlConnection();
+                    SqlDataAdapter daGoalData;
+                    DataTable GoalDataTable = new DataTable();
+
+                    sConnGoalData.ConnectionString = @"Data Source=LAPTOP-DJFHSMT5\SQLEXPRESS;Initial Catalog=MGaySLPDatabase;Integrated Security=True";// bu.ConnectionString;
+                    sConnGoalData.Open();
+
+                    daGoalData = new SqlDataAdapter("SELECT ClientName, Disorder, Goal FROM ClientGoals WHERE ClientName = @Name", sConnGoalData);
+                    daGoalData.SelectCommand.Parameters.Add("@Name", SqlDbType.NVarChar);
+                    daGoalData.SelectCommand.Parameters["@Name"].Value = comboBox7.Text;
+                    SqlCommandBuilder m_cbCommandBuilder = new SqlCommandBuilder(daGoalData);
+                    daGoalData.Fill(GoalDataTable);
+                    dataGridView2.DataSource = GoalDataTable;
+                    dataGridView2.Columns[0].HeaderCell.Value = "Name";
+                    dataGridView2.Columns[1].HeaderCell.Value = "Disorder Type";
+                    dataGridView2.Columns[2].HeaderCell.Value = "Goal";
+                    dataGridView2.AutoResizeColumns();
+                    sConnGoalData.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error! Please try again.", ex.Message);
+                }
+            }
+
+        }
+
+        private void addGoalButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -78,7 +78,6 @@
             this.viewEvalFNameLabel = new System.Windows.Forms.Label();
             this.viewEvalLabel = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.addEvalButton = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -98,12 +97,26 @@
             this.discComboBox = new System.Windows.Forms.ComboBox();
             this.providerLabel = new System.Windows.Forms.Label();
             this.chooseDiscLabel = new System.Windows.Forms.Label();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.viewGoalButton = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.addGoalButton = new System.Windows.Forms.Button();
             this.SLPoptions.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -117,6 +130,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEval)).BeginInit();
             this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            this.tabPage9.SuspendLayout();
+            this.tabPage10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // SLPoptions
@@ -129,11 +147,13 @@
             this.SLPoptions.Controls.Add(this.tabPage5);
             this.SLPoptions.Controls.Add(this.tabPage6);
             this.SLPoptions.Controls.Add(this.tabPage7);
+            this.SLPoptions.Controls.Add(this.tabPage9);
+            this.SLPoptions.Controls.Add(this.tabPage10);
             this.SLPoptions.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SLPoptions.Location = new System.Drawing.Point(2, 1);
             this.SLPoptions.Name = "SLPoptions";
             this.SLPoptions.SelectedIndex = 0;
-            this.SLPoptions.Size = new System.Drawing.Size(700, 500);
+            this.SLPoptions.Size = new System.Drawing.Size(708, 500);
             this.SLPoptions.TabIndex = 0;
             // 
             // tabPage1
@@ -146,7 +166,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(692, 474);
+            this.tabPage1.Size = new System.Drawing.Size(700, 474);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "View Caseload";
             // 
@@ -203,7 +223,7 @@
             this.tabPage8.Controls.Add(this.label8);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(692, 474);
+            this.tabPage8.Size = new System.Drawing.Size(700, 474);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "View Client";
             // 
@@ -276,7 +296,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(692, 474);
+            this.tabPage2.Size = new System.Drawing.Size(700, 474);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Add Client";
             // 
@@ -412,7 +432,7 @@
             this.tabPage3.Controls.Add(this.viewProgressLabel);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(692, 474);
+            this.tabPage3.Size = new System.Drawing.Size(700, 474);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "View Progress";
             // 
@@ -481,7 +501,7 @@
             this.tabPage4.Controls.Add(this.addprogClientNameLabel);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(692, 474);
+            this.tabPage4.Size = new System.Drawing.Size(700, 474);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Add Progress";
             // 
@@ -581,7 +601,7 @@
             this.tabPage5.Controls.Add(this.viewEvalLabel);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(692, 474);
+            this.tabPage5.Size = new System.Drawing.Size(700, 474);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "View Eval";
             // 
@@ -638,10 +658,10 @@
             // tabPage6
             // 
             this.tabPage6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabPage6.Controls.Add(this.numericUpDown2);
+            this.tabPage6.Controls.Add(this.numericUpDown1);
             this.tabPage6.Controls.Add(this.dateTimePicker3);
             this.tabPage6.Controls.Add(this.label10);
-            this.tabPage6.Controls.Add(this.maskedTextBox3);
-            this.tabPage6.Controls.Add(this.maskedTextBox2);
             this.tabPage6.Controls.Add(this.addEvalButton);
             this.tabPage6.Controls.Add(this.textBox4);
             this.tabPage6.Controls.Add(this.label6);
@@ -654,17 +674,9 @@
             this.tabPage6.Controls.Add(this.label2);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(692, 474);
+            this.tabPage6.Size = new System.Drawing.Size(700, 474);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Add Eval";
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(300, 143);
-            this.maskedTextBox2.Mask = "000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(100, 21);
-            this.maskedTextBox2.TabIndex = 35;
             // 
             // addEvalButton
             // 
@@ -698,7 +710,7 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(300, 109);
+            this.textBox3.Location = new System.Drawing.Point(300, 118);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(121, 27);
             this.textBox3.TabIndex = 29;
@@ -707,7 +719,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(149, 178);
+            this.label3.Location = new System.Drawing.Point(149, 187);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(145, 19);
             this.label3.TabIndex = 28;
@@ -717,7 +729,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(155, 145);
+            this.label4.Location = new System.Drawing.Point(155, 154);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(139, 19);
             this.label4.TabIndex = 27;
@@ -727,7 +739,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(191, 112);
+            this.label5.Location = new System.Drawing.Point(191, 121);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 19);
             this.label5.TabIndex = 26;
@@ -746,7 +758,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(300, 77);
+            this.comboBox2.Location = new System.Drawing.Point(300, 86);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 24;
@@ -755,7 +767,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(183, 79);
+            this.label2.Location = new System.Drawing.Point(183, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 19);
             this.label2.TabIndex = 23;
@@ -776,7 +788,7 @@
             this.tabPage7.Controls.Add(this.chooseDiscLabel);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(692, 474);
+            this.tabPage7.Size = new System.Drawing.Size(700, 474);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Send Referral";
             // 
@@ -856,14 +868,6 @@
             this.chooseDiscLabel.TabIndex = 2;
             this.chooseDiscLabel.Text = "Discipline:";
             // 
-            // maskedTextBox3
-            // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(300, 178);
-            this.maskedTextBox3.Mask = "000";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(100, 21);
-            this.maskedTextBox3.TabIndex = 36;
-            // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -893,7 +897,7 @@
             // dateTimePicker3
             // 
             this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(300, 50);
+            this.dateTimePicker3.Location = new System.Drawing.Point(300, 59);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(121, 21);
             this.dateTimePicker3.TabIndex = 38;
@@ -902,11 +906,166 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(201, 50);
+            this.label10.Location = new System.Drawing.Point(201, 59);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(93, 19);
             this.label10.TabIndex = 37;
             this.label10.Text = "Eval Date:";
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabPage9.Controls.Add(this.dataGridView2);
+            this.tabPage9.Controls.Add(this.comboBox7);
+            this.tabPage9.Controls.Add(this.viewGoalButton);
+            this.tabPage9.Controls.Add(this.label11);
+            this.tabPage9.Controls.Add(this.label12);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(700, 474);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "View Goals";
+            // 
+            // tabPage10
+            // 
+            this.tabPage10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabPage10.Controls.Add(this.addGoalButton);
+            this.tabPage10.Controls.Add(this.label13);
+            this.tabPage10.Controls.Add(this.comboBox8);
+            this.tabPage10.Controls.Add(this.comboBox9);
+            this.tabPage10.Controls.Add(this.label14);
+            this.tabPage10.Controls.Add(this.label15);
+            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Size = new System.Drawing.Size(700, 474);
+            this.tabPage10.TabIndex = 9;
+            this.tabPage10.Text = "Add Goal";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(300, 154);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            160,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 21);
+            this.numericUpDown1.TabIndex = 39;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(300, 185);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(120, 21);
+            this.numericUpDown2.TabIndex = 40;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(6, 260);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(686, 211);
+            this.dataGridView2.TabIndex = 21;
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(244, 105);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(185, 21);
+            this.comboBox7.TabIndex = 20;
+            // 
+            // viewGoalButton
+            // 
+            this.viewGoalButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewGoalButton.Location = new System.Drawing.Point(268, 171);
+            this.viewGoalButton.Name = "viewGoalButton";
+            this.viewGoalButton.Size = new System.Drawing.Size(111, 23);
+            this.viewGoalButton.TabIndex = 19;
+            this.viewGoalButton.Text = "View Goals";
+            this.viewGoalButton.UseVisualStyleBackColor = true;
+            this.viewGoalButton.Click += new System.EventHandler(this.viewGoalButton_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(109, 103);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(120, 19);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Client Name: ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(175, 41);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(319, 19);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "Please choose client\'s name to view goal(s):";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(175, 86);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(276, 19);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "Please choose client then goal to add:";
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Location = new System.Drawing.Point(309, 137);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(121, 21);
+            this.comboBox8.TabIndex = 26;
+            // 
+            // comboBox9
+            // 
+            this.comboBox9.FormattingEnabled = true;
+            this.comboBox9.Location = new System.Drawing.Point(309, 185);
+            this.comboBox9.Name = "comboBox9";
+            this.comboBox9.Size = new System.Drawing.Size(121, 21);
+            this.comboBox9.TabIndex = 25;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(188, 183);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(112, 19);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "Target Goal:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(188, 135);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(115, 19);
+            this.label15.TabIndex = 23;
+            this.label15.Text = "Client Name:";
+            // 
+            // addGoalButton
+            // 
+            this.addGoalButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addGoalButton.Location = new System.Drawing.Point(280, 249);
+            this.addGoalButton.Name = "addGoalButton";
+            this.addGoalButton.Size = new System.Drawing.Size(111, 23);
+            this.addGoalButton.TabIndex = 28;
+            this.addGoalButton.Text = "Add Goal";
+            this.addGoalButton.UseVisualStyleBackColor = true;
+            this.addGoalButton.Click += new System.EventHandler(this.addGoalButton_Click);
             // 
             // SpeechTherapyApp
             // 
@@ -940,6 +1099,13 @@
             this.tabPage6.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage9.PerformLayout();
+            this.tabPage10.ResumeLayout(false);
+            this.tabPage10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1014,13 +1180,26 @@
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.Button viewGoalButton;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox comboBox9;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button addGoalButton;
     }
 }
 

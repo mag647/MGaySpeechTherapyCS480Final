@@ -624,7 +624,91 @@ namespace MGaySpeechTherapyCS480Final
 
         private void addGoalButton_Click(object sender, EventArgs e)
         {
+            //https://www.c-sharpcorner.com/uploadfile/mahesh/commandbuilder-in-ado-net/
 
+            //combobox8 is name, 9 is disorder, 10 is goal options 
+            
+
+            if (comboBox8.Text == "" || comboBox9.Text == "" || comboBox10.Text == "")
+            {
+                MessageBox.Show("One or more fields are blank. Please fill in missing data!");
+            }
+            else
+            {
+                try
+                {
+                    //fill diagnosis combo box and goal box, i suppose this will be on selected index changed actually 
+                    SqlConnection sConnClientData = new SqlConnection();
+                    SqlDataAdapter daClientData;
+
+                    sConnClientData.ConnectionString = @"Data Source=LAPTOP-DJFHSMT5\SQLEXPRESS;Initial Catalog=MGaySLPDatabase;Integrated Security=True";// bu.ConnectionString;
+                    sConnClientData.Open();
+                    
+                    daClientData = new SqlDataAdapter("SELECT ClientName, Disorder, Goal FROM ClientGoals ORDER by ClientName", sConnClientData);
+                    SqlCommandBuilder m_cbCommandBuilder = new SqlCommandBuilder(daClientData);
+
+                    DataSet ds = new DataSet("ClientGoalSet");
+                    daClientData.Fill(ds, "ClientGoals");
+                    DataTable ClientDataTable = ds.Tables["ClientGoals"];
+                    DataRow row = ClientDataTable.NewRow();
+                    row["ClientName"] = comboBox8.Text;
+                    row["Disorder"] = comboBox9.Text;
+                    row["Goal"] = comboBox10.Text;
+                    ClientDataTable.Rows.Add(row);
+
+                    daClientData.Update(ds, "ClientGoals");
+                    MessageBox.Show(row["ClientName"].ToString().Trim() + "'s new goal added!");
+
+                    sConnClientData.Close();
+
+                    comboBox8.Text = "";
+                    comboBox9.Text = "";
+                    comboBox10.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error with adding goal!", ex.Message);
+                }
+
+            }
+        }
+        //add goal client name box
+        private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlConnection sConn = new SqlConnection();
+            sConn.ConnectionString = @"Data Source=LAPTOP-DJFHSMT5\SQLEXPRESS;Initial Catalog=MGaySLPDatabase;Integrated Security=True";// bu.ConnectionString;
+
+            SqlCommand sqlCmd = new SqlCommand("SELECT Disorder FROM ClientGoals WHERE ClientName=@Name", sConn);
+            sqlCmd.Parameters.Add("@Name", SqlDbType.NVarChar);
+            sqlCmd.Parameters["@Name"].Value = comboBox8.Text;
+            sConn.Open();
+            comboBox9.Items.Clear();
+            SqlDataReader sqlReader = sqlCmd.ExecuteReader();
+            while (sqlReader.Read())
+            {
+                comboBox9.Items.Add(sqlReader["Disorder"].ToString());
+            }
+            sqlReader.Close();
+            sConn.Close();
+        }
+        //disorder combobox 
+        private void comboBox9_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlConnection sConn = new SqlConnection();
+            sConn.ConnectionString = @"Data Source=LAPTOP-DJFHSMT5\SQLEXPRESS;Initial Catalog=MGaySLPDatabase;Integrated Security=True";// bu.ConnectionString;
+
+            SqlCommand sqlCmd = new SqlCommand("SELECT GoalText FROM GoalList WHERE Disorder=@Disorder", sConn);
+            sqlCmd.Parameters.Add("@Disorder", SqlDbType.NVarChar);
+            sqlCmd.Parameters["@Disorder"].Value = comboBox9.Text;
+            sConn.Open();
+            comboBox10.Items.Clear();
+            SqlDataReader sqlReader = sqlCmd.ExecuteReader();
+            while (sqlReader.Read())
+            {
+                comboBox10.Items.Add(sqlReader["GoalText"].ToString());
+            }
+            sqlReader.Close();
+            sConn.Close();
         }
     }
 }
